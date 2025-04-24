@@ -3,6 +3,9 @@ package com.work.Controller;
 import java.io.IOException;
 
 import com.work.Main;
+import com.work.DTO.Board;
+import com.work.Service.BoardService;
+import com.work.Service.BoardServiceImpl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +28,21 @@ public class ReadController {
 
     @FXML
     private TextField writer;
+
+    BoardService boardService;
+
+    Board board;
+
+    int no=1;
+
+    @FXML
+    void initialize() {
+        boardService = new BoardServiceImpl();
+        board = boardService.select(no);
+        title.setText(board.getTitle());
+        writer.setText(board.getWriter());
+        content.setText(board.getContent());
+    }
 
     @FXML
     void toList(ActionEvent event) throws IOException {
