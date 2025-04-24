@@ -15,6 +15,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+
     public List<Board> list() {
         List<Board> boardList = boardDAO.list();
         return boardList;
@@ -24,6 +25,8 @@ public class BoardServiceImpl implements BoardService {
     public int update(Board board) {
         return boardDAO.update(board); 
     }
+
+
     @Override
     public int delete(int no){ 
         int result = boardDAO.delete(no);  
@@ -38,5 +41,6 @@ public class BoardServiceImpl implements BoardService {
 		// 게시글 정보 반환
 		return board;
     }
-    
+
+  
 }
