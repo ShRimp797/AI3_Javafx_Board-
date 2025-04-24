@@ -21,7 +21,7 @@ public class BoardDAO extends JDBConnection {
         } catch (Exception e) {
             System.err.println("게시글 등록 시, 예외 발생");
             e.printStackTrace();
-        }
+        } 
         return result;
     }
 
@@ -36,14 +36,14 @@ public class BoardDAO extends JDBConnection {
                    + "        ,writer = ?"
                    + "        ,content = ?"
                    + "        ,updated_at = now() "
-                   + " WHERE no = 1 ";
+                   + " WHERE no = ? ";
 
         try {
             psmt = con.prepareStatement(sql); 
             psmt.setString(1, board.getTitle() );
             psmt.setString(2, board.getWriter() );
             psmt.setString(3, board.getContent() );
-            // psmt.setInt(4, board.getNo() );
+            psmt.setInt(4, board.getNo() );
             result = psmt.executeUpdate();
         } catch (Exception e) {
             System.err.println("게시글 수정 시, 예외 발생");
@@ -52,9 +52,6 @@ public class BoardDAO extends JDBConnection {
 
         return result; 
     }
-
-
-    
 
 
 
@@ -104,6 +101,22 @@ public class BoardDAO extends JDBConnection {
 		// 게시글 정보 1건 반환
 		return board;
 	}
+
+    // 게시글 삭제 
+    public int delete(int no) {
+        int result = 0;
+        
+        String sql = " DELETE FROM board"
+                   + " WHERE no = ? "; 
+        try {
+            psmt = con.prepareStatement(sql); 
+            psmt.setInt(1, no);
+            result = psmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("delete faild");
+        }
+        return result;
+    }
 
     
 }
