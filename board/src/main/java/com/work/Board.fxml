@@ -20,18 +20,18 @@
       <Button fx:id="write" layoutX="470.0" layoutY="326.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="글쓰기" />
       <Pane layoutX="35.0" layoutY="67.0" prefHeight="246.0" prefWidth="525.0">
          <children>
-            <TableView fx:id="content" prefHeight="246.0" prefWidth="525.0">
+            <TableView fx:id="board" prefHeight="246.0" prefWidth="525.0">
               <columns>
                 <TableColumn prefWidth="21.0" text="C1">
                      <graphic>
                         <CheckBox fx:id="select" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="16.0" prefWidth="18.0" textAlignment="CENTER" />
                      </graphic>
                   </TableColumn>
-                <TableColumn fx:id="number" text="글번호" />
-                  <TableColumn fx:id="subject" prefWidth="182.0" text="제목" />
+                <TableColumn fx:id="no" text="글번호" />
+                  <TableColumn fx:id="title" prefWidth="182.0" text="제목" />
                   <TableColumn fx:id="writer" text="작성자" />
-                  <TableColumn fx:id="registerDate" text="등록일자" />
-                  <TableColumn fx:id="editDate" text="수정일자" />
+                  <TableColumn fx:id="createdAt" text="등록일자" />
+                  <TableColumn fx:id="updatedAt" text="수정일자" />
               </columns>
             </TableView>
          </children>
