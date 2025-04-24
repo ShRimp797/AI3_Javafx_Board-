@@ -29,13 +29,20 @@ public class ReadController {
     @FXML
     private TextField writer;
 
+
     int no;
     Board board;
     BoardService boardService;
 
+
     @FXML
     public void initialize() {
         boardService = new BoardServiceImpl();
+        board = boardService.select(no);
+        title.setText(board.getTitle());
+        writer.setText(board.getWriter());
+        content.setText(board.getContent());
+
     }
 
     @FXML

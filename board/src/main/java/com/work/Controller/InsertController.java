@@ -48,7 +48,7 @@ public class InsertController {
             System.out.println("게시글 등록 실패!");
         }
         // 게시글 목록으로 이동
-        Main.setRoot("Board");
+        Main.setRoot("List");
     }
 
 }
