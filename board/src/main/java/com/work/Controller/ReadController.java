@@ -3,6 +3,9 @@ package com.work.Controller;
 import java.io.IOException;
 
 import com.work.Main;
+import com.work.DTO.Board;
+import com.work.Service.BoardService;
+import com.work.Service.BoardServiceImpl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +29,15 @@ public class ReadController {
     @FXML
     private TextField writer;
 
+    int no;
+    Board board;
+    BoardService boardService;
+
+    @FXML
+    public void initialize() {
+        boardService = new BoardServiceImpl();
+    }
+
     @FXML
     void toList(ActionEvent event) throws IOException {
         Main.setRoot("UI/List");
@@ -39,6 +51,14 @@ public class ReadController {
     @FXML
     void writer(ActionEvent event) {
 
+    }
+
+    public void passData(int boardNo) {
+        // TODO :
+        // board = boardService.select(no);
+        title.setText(board.getTitle());
+        writer.setText(board.getWriter());
+        content.setText(board.getContent());
     }
 
 }

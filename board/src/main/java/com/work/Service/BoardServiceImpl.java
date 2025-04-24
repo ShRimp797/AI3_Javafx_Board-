@@ -1,5 +1,7 @@
 package com.work.Service;
 
+import java.util.List;
+
 import com.work.DAO.BoardDAO;
 import com.work.DTO.Board;
 
@@ -10,6 +12,12 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public int insert(Board board) {
         return boardDAO.insert(board);
+    }
+
+    @Override
+    public List<Board> list() {
+        List<Board> boardList = boardDAO.list();
+        return boardList;
     }
     
 }
