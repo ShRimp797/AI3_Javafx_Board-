@@ -40,10 +40,7 @@ public class UpdateController {
     private BoardService boardService;
 
     int boardNo; 
-    
-    private BoardService boardService;
 
-    int boardNo; 
     
     @FXML
     void initialize() {
