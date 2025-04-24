@@ -6,4 +6,10 @@ public interface BoardService {
     
     // 게시글 등록
     public int insert(Board board);
+
+    // 게시글 수정 
+    public int update(Board board);
+
+    // 게시글 삭제 
+    public int delete(int no);
 }
