@@ -58,6 +58,12 @@ public class BoardDAO extends JDBConnection {
 			// 3. 조회된 결과를 리스트(boardList)에 추가
 			while( rs.next() ) {			// next() : 조회 결과의 다음 데이터로 이동
 			Board board = new Board();
+			board.setNo( rs.getInt("no") );
+			board.setTitle( rs.getString("title") );
+			board.setWriter( rs.getString("writer") );
+			board.setContent( rs.getString("content") );
+			board.setCreatedAt( rs.getTimestamp("created_at") );
+			board.setUpdatedAt( rs.getTimestamp("updated_at") );
 			
 			// 게시글 목록 추가
 			boardList.add(board);
@@ -140,7 +146,7 @@ public class BoardDAO extends JDBConnection {
 				board.setCreatedAt( rs.getTimestamp("created_at") );
 				board.setUpdatedAt( rs.getTimestamp("updated_at") );
 			}
-			
+			System.out.println(board);
 		} catch (SQLException e) {
 			System.err.println("게시글 조회 시, 예외 발생");
 			e.printStackTrace();

@@ -47,8 +47,7 @@ public class ListController {
     @FXML
     private Button close;
 
-    @FXML
-    private Button delete;
+   
 
     private BoardService boardService;
     
@@ -86,10 +85,7 @@ public class ListController {
         // 종료 버튼 클릭 → 애플리케이션 종료
         close.setOnAction(e -> System.exit(0));
 
-        // 삭제 버튼 (구현 예정)
-        delete.setOnAction(e -> {
-            System.out.println("선택된 게시글 삭제 기능 추가 예정");
-        });
+      
 
         board.setOnMouseClicked( new EventHandler<MouseEvent>() {
 
@@ -105,9 +101,9 @@ public class ListController {
 						FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
 						Parent root = fxmlLoader.load();
 						ReadController readController = (ReadController) fxmlLoader.getController();
-                        // TODO: ReadContro passData 다 짜면 주석 해제
-						// readController.passData(boardNo);
-						// Main.setRoot(root);
+                        //  TODO: ReadContro passData 다 짜면 주석 해제
+						readController.passData(boardNo);
+						 Main.setRoot(root);
 
 
 					} catch (Exception e) {
