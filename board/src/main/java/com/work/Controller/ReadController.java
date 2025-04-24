@@ -1,0 +1,62 @@
+package com.work.Controller;
+
+import java.io.IOException;
+
+import com.work.Main;
+import com.work.DTO.Board;
+import com.work.Service.BoardService;
+import com.work.Service.BoardServiceImpl;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+public class ReadController {
+
+    @FXML
+    private Button btnList;
+
+    @FXML
+    private Button btnUpdate;
+
+    @FXML
+    private TextField content;
+
+    @FXML
+    private TextField title;
+
+    @FXML
+    private TextField writer;
+
+    BoardService boardService;
+
+    Board board;
+
+    int no=1;
+
+    @FXML
+    void initialize() {
+        boardService = new BoardServiceImpl();
+        board = boardService.select(no);
+        title.setText(board.getTitle());
+        writer.setText(board.getWriter());
+        content.setText(board.getContent());
+    }
+
+    @FXML
+    void toList(ActionEvent event) throws IOException {
+        Main.setRoot("UI/List");
+    }   
+
+    @FXML
+    void toUpdate(ActionEvent event) throws IOException {
+        Main.setRoot("UI/Update");
+    }
+
+    @FXML
+    void writer(ActionEvent event) {
+
+    }
+
+}
