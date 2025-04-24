@@ -24,9 +24,9 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="tfTitle" layoutX="160.0" layoutY="88.0" prefHeight="31.0" prefWidth="404.0" />
-      <TextField fx:id="tfWriter" layoutX="160.0" layoutY="128.0" prefHeight="31.0" prefWidth="404.0" />
-      <TextArea fx:id="taContent" layoutX="50.0" layoutY="171.0" prefHeight="170.0" prefWidth="514.0" />
+      <TextField fx:id="title" layoutX="160.0" layoutY="88.0" prefHeight="31.0" prefWidth="404.0" />
+      <TextField fx:id="writer" layoutX="160.0" layoutY="128.0" prefHeight="31.0" prefWidth="404.0" />
+      <TextArea fx:id="content" layoutX="50.0" layoutY="171.0" prefHeight="170.0" prefWidth="514.0" />
       <Button fx:id="btnUpdate" layoutX="375.0" layoutY="353.0" mnemonicParsing="false" onAction="#toUpdate" prefHeight="37.0" prefWidth="86.0" text="수정">
          <font>
             <Font size="20.0" />

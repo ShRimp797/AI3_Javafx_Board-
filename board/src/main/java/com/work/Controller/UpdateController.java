@@ -29,18 +29,20 @@ public class UpdateController {
     private Button btnUpdate;
 
     @FXML
-    private TextArea taContent;
+    private TextArea content;
 
     @FXML
-    private TextField tfTitle;
+    private TextField title;
 
     @FXML
-    private TextField tfWriter;
+    private TextField writer;
 
-    private BoardService boardService;
+    
 
-    int boardNo; 
-
+   
+    int no;
+    Board board;
+    BoardService boardService;
     
     @FXML
     void initialize() {
@@ -50,8 +52,8 @@ public class UpdateController {
 
     @FXML
     void toUpdate(ActionEvent event) throws IOException {
-        Board board = new Board(tfTitle.getText(), tfWriter.getText(), taContent.getText());
-        board.setNo(boardNo); 
+        Board board = new Board(title.getText(), writer.getText(), content.getText());
+        board.setNo(no); 
         int result = boardService.update(board); 
         if( result > 0 ){
             System.out.println("update data OK!");
@@ -62,17 +64,34 @@ public class UpdateController {
     void toDelete(ActionEvent event) throws IOException { 
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Delete Data");
-        alert.setHeaderText("Are you sure you want to delete this post? no : " + boardNo);
+        alert.setHeaderText("Are you sure you want to delete this post? no : " + no);
         alert.setContentText("Once delete, it cannot be undone.");
 
         int result = 0; 
         if(alert.showAndWait().get() == ButtonType.OK){
-            result = boardService.delete(boardNo);
+            result = boardService.delete(no);
         }
         if( result > 0 ) {
             System.err.println("delete post OK!");
-            Main.setRoot("UI/Board");   
+            Main.setRoot("UI/List");   
         }
     }
+
+
+    /**
+     * ⭐ 데이터 전달 받기
+     * 게시글 번호를 전달받아 게시글 정보를 조회하여 화면에 표시
+     * @param boardNo
+     */
+    public void passData(int boardNo) {
+
+        no = boardNo;
+        board = boardService.select(no);
+        title.setText(board.getTitle());
+        writer.setText(board.getWriter());
+        content.setText(board.getContent());
+
+    }
+ 
 
 }
