@@ -1,5 +1,7 @@
 package com.work.Service;
 
+import java.util.List;
+
 import com.work.DAO.BoardDAO;
 import com.work.DTO.Board;
 
@@ -14,11 +16,18 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
 
+    public List<Board> list() {
+        List<Board> boardList = boardDAO.list();
+        return boardList;
+    }
+
+    @Override
     public int update(Board board) {
         return boardDAO.update(board); 
     }
 
-    // @Override
+
+    @Override
     public int delete(int no){ 
         int result = boardDAO.delete(no);  
         if (result > 0) System.out.println("delete data succeeded");
@@ -33,7 +42,5 @@ public class BoardServiceImpl implements BoardService {
 		return board;
     }
 
-
-
-    
+  
 }

@@ -3,7 +3,9 @@ package com.work.Controller;
 import java.io.IOException;
 
 import com.work.Main;
+
 import com.work.DAO.BoardDAO;
+
 import com.work.DTO.Board;
 import com.work.Service.BoardService;
 import com.work.Service.BoardServiceImpl;
@@ -11,6 +13,7 @@ import com.work.Service.BoardServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
@@ -34,6 +37,10 @@ public class UpdateController {
     @FXML
     private TextField tfWriter;
 
+    private BoardService boardService;
+
+    int boardNo; 
+    
     private BoardService boardService;
 
     int boardNo; 
@@ -70,4 +77,5 @@ public class UpdateController {
             Main.setRoot("UI/Board");   
         }
     }
+
 }
