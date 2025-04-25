@@ -17,9 +17,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
-        scene = new Scene(loadFXML("Main"));
-
+        scene = new Scene(loadFXML("UI/Main"));
         stage.setScene(scene);
         stage.show();
     }
@@ -29,8 +27,8 @@ public class Main extends Application {
     }
 
     public static void setRoot(Parent root) throws Exception {
-		scene.setRoot(root);
-	}
+        scene.setRoot(root);
+    }
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
